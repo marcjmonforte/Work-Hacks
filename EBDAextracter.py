@@ -18,7 +18,7 @@ copied_text = pyperclip.paste()
 
 # Regex to target the tabs and retrieve CRID in the middle.
 cridList = []
-cridRegex = re.compile(r'(\d*)([\t])(\d*)([\t])')
+cridRegex = re.compile(r'(\d*)([\t]{3})(\w*)([\t])')
 for groups in cridRegex.findall(copied_text):
     matches = groups[2]
     cridList.append(matches)

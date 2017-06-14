@@ -30,7 +30,7 @@ fixedData = fixRegex.sub(',', data)
 
 
 # Swap colon and space for tab.
-fixedData = fixedData.replace(':', '\t')
+fixedData = fixedData.replace(':', '\t\t\t')
 fixedData = fixedData.replace(' ', '\t')
 
 
