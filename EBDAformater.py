@@ -39,9 +39,6 @@ for groups in networkRegex.findall(fixedData):
     if groups[0] in dsp.dsp:
         fixedData = fixedData.replace(groups[0],dsp.dsp[groups[0]])
 
-# Replace networkID with actual ID name.
-# networkRegex = 
-
 # Print results, update clipboard.
 print('The following data is ready for use:')
 print(fixedData)
