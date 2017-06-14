@@ -25,7 +25,7 @@ data = '\n'.join(copied_list)
 
 
 # If line does not start with Network ID, shift it up.
-fixRegex = re.compile(r'\n(?!\d{4}:\d+)')
+fixRegex = re.compile(r'\n(?!\d{4}:\w+)')
 fixedData = fixRegex.sub(',', data)
 
 
@@ -33,11 +33,13 @@ fixedData = fixRegex.sub(',', data)
 fixedData = fixedData.replace(':', '\t')
 fixedData = fixedData.replace(' ', '\t')
 
+
 # Regex to replace networkID with actual ID name.
-networkRegex = re.compile('(\d{4})([\t])(\d+)')
+networkRegex = re.compile('(\d{4})([\t])(.+)')
 for groups in networkRegex.findall(fixedData):
     if groups[0] in dsp.dsp:
         fixedData = fixedData.replace(groups[0],dsp.dsp[groups[0]])
+
 
 # Print results, update clipboard.
 print('The following data is ready for use:')
